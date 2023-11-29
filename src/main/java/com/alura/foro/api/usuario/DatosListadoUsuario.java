@@ -1,4 +1,4 @@
-package com.alura.foro.modelo.usuario;
+package com.alura.foro.api.usuario;
 
 public record DatosListadoUsuario(
         Long id,

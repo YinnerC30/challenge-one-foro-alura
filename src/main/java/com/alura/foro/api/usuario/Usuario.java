@@ -1,7 +1,5 @@
-package com.alura.foro.modelo.usuario;
+package com.alura.foro.api.usuario;
 
-import com.alura.foro.modelo.usuario.DatosActualizarUsuario;
-import com.alura.foro.modelo.usuario.DatosRegistroUsuario;
 import jakarta.persistence.*;
 import lombok.*;
 

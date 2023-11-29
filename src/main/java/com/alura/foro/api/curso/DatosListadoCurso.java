@@ -1,6 +1,4 @@
-package com.alura.foro.modelo.curso;
-
-import com.alura.foro.modelo.curso.Curso;
+package com.alura.foro.api.curso;
 
 public record DatosListadoCurso(
         Long id,

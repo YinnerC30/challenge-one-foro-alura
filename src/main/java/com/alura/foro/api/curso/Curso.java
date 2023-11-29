@@ -1,4 +1,4 @@
-package com.alura.foro.modelo.curso;
+package com.alura.foro.api.curso;
 
 import jakarta.persistence.*;
 import lombok.*;

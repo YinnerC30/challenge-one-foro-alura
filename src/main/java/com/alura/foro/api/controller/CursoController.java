@@ -1,11 +1,11 @@
-package com.alura.foro.controller;
+package com.alura.foro.api.controller;
 
-import com.alura.foro.exceptions.CursoNotFoundException;
-import com.alura.foro.modelo.curso.Curso;
-import com.alura.foro.modelo.curso.DatosActualizarCurso;
-import com.alura.foro.modelo.curso.DatosListadoCurso;
-import com.alura.foro.modelo.curso.DatosRegistroCurso;
-import com.alura.foro.repository.CursoRepository;
+import com.alura.foro.api.exceptions.CursoNotFoundException;
+import com.alura.foro.api.curso.Curso;
+import com.alura.foro.api.curso.DatosActualizarCurso;
+import com.alura.foro.api.curso.DatosListadoCurso;
+import com.alura.foro.api.curso.DatosRegistroCurso;
+import com.alura.foro.api.repository.CursoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cursos")
+@RequestMapping("/api/cursos")
 public class CursoController {
 
     @Autowired

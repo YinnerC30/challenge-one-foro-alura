@@ -1,11 +1,11 @@
-package com.alura.foro.controller;
+package com.alura.foro.api.controller;
 
-import com.alura.foro.exceptions.UsuarioNotFoundException;
-import com.alura.foro.modelo.usuario.Usuario;
-import com.alura.foro.modelo.usuario.DatosActualizarUsuario;
-import com.alura.foro.modelo.usuario.DatosListadoUsuario;
-import com.alura.foro.modelo.usuario.DatosRegistroUsuario;
-import com.alura.foro.repository.UsuarioRepository;
+import com.alura.foro.api.exceptions.UsuarioNotFoundException;
+import com.alura.foro.api.usuario.Usuario;
+import com.alura.foro.api.usuario.DatosActualizarUsuario;
+import com.alura.foro.api.usuario.DatosListadoUsuario;
+import com.alura.foro.api.usuario.DatosRegistroUsuario;
+import com.alura.foro.api.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
 
     @Autowired

@@ -1,11 +1,11 @@
-package com.alura.foro.modelo.curso;
+package com.alura.foro.api.usuario;
 
 import jakarta.validation.constraints.NotNull;
 
-public record DatosActualizarCurso(
+public record DatosActualizarUsuario(
         @NotNull
         Long id,
         String nombre,
-        String categoria
+        String contrasena
 ) {
 }

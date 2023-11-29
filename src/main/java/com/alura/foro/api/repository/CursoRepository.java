@@ -1,6 +1,6 @@
-package com.alura.foro.repository;
+package com.alura.foro.api.repository;
 
-import com.alura.foro.modelo.curso.Curso;
+import com.alura.foro.api.curso.Curso;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CursoRepository extends JpaRepository<Curso, Long> {

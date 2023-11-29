@@ -1,4 +1,4 @@
-package com.alura.foro.exceptions;
+package com.alura.foro.api.exceptions;
 public class TopicoNotFoundException extends RuntimeException {
 
     private Long id;

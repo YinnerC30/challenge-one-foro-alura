@@ -1,4 +1,4 @@
-package com.alura.foro.exceptions;
+package com.alura.foro.api.exceptions;
 public class RespuestaNotFoundException extends RuntimeException {
 
     private Long id;
