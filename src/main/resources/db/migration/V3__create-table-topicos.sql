@@ -2,7 +2,7 @@ create table topicos (
     id serial primary key ,
     titulo varchar(100),
     mensaje varchar(500),
-    fechaCreacion timestamp,
+    fecha_creacion timestamp,
     status varchar(30),
     autor_id int,
     curso_id int,
