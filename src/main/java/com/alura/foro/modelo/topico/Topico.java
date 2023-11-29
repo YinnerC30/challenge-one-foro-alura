@@ -1,4 +1,9 @@
-package com.alura.foro.modelo;
+package com.alura.foro.modelo.topico;
+
+import com.alura.foro.modelo.curso.Curso;
+import com.alura.foro.modelo.enums.StatusTopico;
+import com.alura.foro.modelo.respuesta.Respuesta;
+import com.alura.foro.modelo.usuario.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

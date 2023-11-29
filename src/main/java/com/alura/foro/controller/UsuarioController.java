@@ -1,7 +1,7 @@
 package com.alura.foro.controller;
 
 import com.alura.foro.exceptions.UsuarioNotFoundException;
-import com.alura.foro.modelo.Usuario;
+import com.alura.foro.modelo.usuario.Usuario;
 import com.alura.foro.modelo.usuario.DatosActualizarUsuario;
 import com.alura.foro.modelo.usuario.DatosListadoUsuario;
 import com.alura.foro.modelo.usuario.DatosRegistroUsuario;

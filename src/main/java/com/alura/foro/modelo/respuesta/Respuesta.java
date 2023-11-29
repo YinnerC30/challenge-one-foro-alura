@@ -1,4 +1,7 @@
-package com.alura.foro.modelo;
+package com.alura.foro.modelo.respuesta;
+
+import com.alura.foro.modelo.topico.Topico;
+import com.alura.foro.modelo.usuario.Usuario;
 
 import java.time.LocalDateTime;
 

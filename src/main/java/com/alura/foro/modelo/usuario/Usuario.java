@@ -1,4 +1,4 @@
-package com.alura.foro.modelo;
+package com.alura.foro.modelo.usuario;
 
 import com.alura.foro.modelo.usuario.DatosActualizarUsuario;
 import com.alura.foro.modelo.usuario.DatosRegistroUsuario;
@@ -12,6 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+@Embeddable
 public class Usuario {
 
 	@Id
