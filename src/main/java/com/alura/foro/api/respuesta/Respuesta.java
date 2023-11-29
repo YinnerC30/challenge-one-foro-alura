@@ -36,7 +36,7 @@ public class Respuesta {
     private Boolean solucion = false;
 
     @Column(name = "is_active")
-    private Boolean isActive = true;
+    private Boolean is_active = true;
 
     public void actualizarDatos(Respuesta respuesta) {
         if (respuesta.getMensaje() != null && !respuesta.getMensaje().isEmpty()) {
@@ -62,6 +62,6 @@ public class Respuesta {
 
 
     public void desactivarRespuesta() {
-        this.isActive = false;
+        this.is_active = false;
     }
 }

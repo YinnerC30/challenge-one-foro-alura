@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,14 +35,14 @@ public class UsuarioController {
 
 
     @GetMapping
-    public Page<DatosListadoUsuario> listadoUsuarios(@PageableDefault(size = 5) Pageable pageable) {
-        return usuarioRepository.findAll(pageable).map(DatosListadoUsuario::new);
+    public Page<DatosListadoUsuario> listadoUsuarios(@PageableDefault(size = 5) @SortDefault(sort = "id") Pageable pageable) {
+        return usuarioRepository.findAllByIsActiveTrue(pageable).map(DatosListadoUsuario::new);
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Usuario>> obtenerUsuario(@PathVariable Integer id) {
-        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
+    public ResponseEntity<Optional<Usuario>> obtenerUsuario(@PathVariable Long id) {
+        Optional<Usuario> usuarioOptional = usuarioRepository.findByIdAndIsActiveTrue(id);
         if (!usuarioOptional.isPresent()) {
             return ResponseEntity.notFound().build();
         }
@@ -52,7 +53,7 @@ public class UsuarioController {
     @PutMapping
     @Transactional
     public void actualizarUsuario(@RequestBody @Valid DatosActualizarUsuario datosActualizarUsuario) throws UsuarioNotFoundException {
-        Optional<Usuario> usuarioOptional = usuarioRepository.findById(Math.toIntExact(datosActualizarUsuario.id()));
+        Optional<Usuario> usuarioOptional = usuarioRepository.findByIdAndIsActiveTrue(datosActualizarUsuario.id());
         if (!usuarioOptional.isPresent()) {
             throw new UsuarioNotFoundException(datosActualizarUsuario.id());
         }

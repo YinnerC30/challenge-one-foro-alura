@@ -6,10 +6,12 @@ import com.alura.foro.api.repository.RespuestaRepository;
 import com.alura.foro.api.respuesta.Respuesta;
 import com.alura.foro.api.topico.Topico;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,20 +26,20 @@ public class RespuestaController {
     private RespuestaRepository respuestaRepository;
 
     @PostMapping
-    public ResponseEntity<Respuesta> guardarRespuesta(@RequestBody Respuesta respuesta) {
+    public ResponseEntity<Respuesta> guardarRespuesta(@RequestBody @Valid Respuesta respuesta) {
         respuestaRepository.save(respuesta);
         return ResponseEntity.status(HttpStatus.CREATED).body(respuesta);
     }
 
    @GetMapping
-    public Page<Respuesta> listadoRespuestas(@PageableDefault(size = 5) Pageable pageable) {
-        return respuestaRepository.findAll(pageable);
+    public Page<Respuesta> listadoRespuestas(@PageableDefault(size = 5) @SortDefault(sort = "id") Pageable pageable) {
+        return respuestaRepository.findAllByIsActiveTrue(pageable);
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Respuesta>> obtenerTopico(@PathVariable Long id) {
-        Optional<Respuesta> respuestaOptional = respuestaRepository.findById(id);
+        Optional<Respuesta> respuestaOptional = respuestaRepository.findByIdAndIsActiveTrue(id);
         if (!respuestaOptional.isPresent()) {
             return ResponseEntity.notFound().build();
         }
@@ -47,8 +49,8 @@ public class RespuestaController {
 
     @PutMapping
     @Transactional
-    public void actualizarTopico(@RequestBody Respuesta respuesta) throws TopicoNotFoundException {
-        Optional<Respuesta> respuestaOptional = respuestaRepository.findById(respuesta.getId());
+    public void actualizarTopico(@RequestBody @Valid Respuesta respuesta) throws TopicoNotFoundException {
+        Optional<Respuesta> respuestaOptional = respuestaRepository.findByIdAndIsActiveTrue(respuesta.getId());
         if (!respuestaOptional.isPresent()) {
             throw new CursoNotFoundException(respuesta.getId());
         }

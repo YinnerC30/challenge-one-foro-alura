@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,14 +35,14 @@ public class CursoController {
 
 
     @GetMapping
-    public Page<DatosListadoCurso> listadoCursos(@PageableDefault(size = 5) Pageable pageable) {
-        return cursoRepository.findAll(pageable).map(DatosListadoCurso::new);
+    public Page<DatosListadoCurso> listadoCursos(@PageableDefault(size = 5) @SortDefault(sort = "id") Pageable pageable) {
+        return cursoRepository.findAllByIsActiveTrue(pageable).map(DatosListadoCurso::new);
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Curso>> obtenerCurso(@PathVariable Long id) {
-        Optional<Curso> cursoOptional = cursoRepository.findById(id);
+        Optional<Curso> cursoOptional = cursoRepository.findByIdAndIsActiveTrue(id);
         if (!cursoOptional.isPresent()) {
             return ResponseEntity.notFound().build();
         }
@@ -52,7 +53,7 @@ public class CursoController {
     @PutMapping
     @Transactional
     public void actualizarCurso(@RequestBody @Valid DatosActualizarCurso datosActualizarCurso) throws CursoNotFoundException {
-        Optional<Curso> cursoOptional = cursoRepository.findById(datosActualizarCurso.id());
+        Optional<Curso> cursoOptional = cursoRepository.findByIdAndIsActiveTrue(datosActualizarCurso.id());
         if (!cursoOptional.isPresent()) {
             throw new CursoNotFoundException(datosActualizarCurso.id());
         }
