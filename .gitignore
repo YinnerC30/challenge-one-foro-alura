@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Incluir el archivo JAR específico
+!/target/challenge-one-foro-alura.jar
