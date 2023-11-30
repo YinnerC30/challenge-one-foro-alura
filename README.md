@@ -31,7 +31,6 @@ El proyecto por el momento se encuentra finalizado, no obstante se tiene pensado
 desde el archivo `application.properties`.
 - Ejecutar aplicación desde la clase `ForoInicialApplication.java`.
 
-
 # 👨‍💻 Tecnologías utilizadas
 
 - Java 17
