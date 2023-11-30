@@ -2,6 +2,8 @@
 
 # Índice
 
+
+
 - [Descripción del proyecto](#Descripción-del-proyecto)
 - [Estado del proyecto](#Estado-del-proyecto)
 - [Acceso al proyecto](#Acceso-al-proyecto)
@@ -31,6 +33,8 @@ El proyecto por el momento se encuentra finalizado, no obstante se tiene pensado
 desde el archivo `application.properties`.
 - Ejecutar aplicación desde la clase `ForoInicialApplication.java`.
 
+
+Nota: Asegurate que la conexión a la base de datos PostgreSQL de tu computadora (usuario, contraseña, puerto de escucha servidor) concuerden con los parametros de la cadena de conexión del presente proyecto.
 
 # 👨‍💻 Tecnologías utilizadas
 
